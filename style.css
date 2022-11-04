@@ -1,0 +1,72 @@
+*:not(h1, h2) {
+    font-family: "Poppins";
+    font-size: 2vh;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#game {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#comparison {
+    display: flex;
+}
+
+.image {
+    height: 18vh;
+    width: auto;
+}
+
+#you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid black;
+    padding-right: 5.85vw;
+}
+
+#bot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid black;
+    padding-left: 5.85vw;
+}
+
+#choose-you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#options-rps {
+    display: flex;
+    column-gap: 2vw;
+}
+
+.button {
+    font-weight: bold;
+    padding: 1.2vh 3vw;
+    border-radius: 1.5vh;
+    cursor: pointer;
+}
+
+#addition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#options-add {
+    display: flex;
+    column-gap: 2vw;
+}
