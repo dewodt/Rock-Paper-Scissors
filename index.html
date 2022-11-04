@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title> Rock Paper Scissors </title>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="main">
+            <div id="home">
+                <h1>Rock Paper Scissors Best of Five!</h1>
+                <button class="button" onclick=startGame()>Play!</button>
+            </div>
+            <div id="game">
+                <h1>Rock Paper Scissors</h1>
+                <div id="comparison">
+                    <div id="you">
+                        <h2>You</h2>
+                        <div id="score-you">0</div>
+                        <img id="img-you" class="image" src="images/empty.png">
+                    </div>
+                    <div id="bot">
+                        <h2>Bot</h2>
+                        <div id="score-bot">0</div>
+                        <img id="img-bot" class="image" src="images/empty.png">
+                    </div>
+                </div>
+                <div id="who-won">
+                    <h2 id="winner"></span></h2>
+                </div>
+                <div id="choose-you">
+                    <h2>Choose Your Attempt!</h2>
+                    <div id="options-rps">
+                        <button class="button" id="rock" onclick=onClickRock()>Rock</button>
+                        <button class="button" id="paper" onclick=onClickPaper()>Paper</button>
+                        <button class="button" id="scissors" onclick=onClickScissors()>Scissors</button>
+                    </div>
+                </div>
+                <div id="addition">
+                    <h2>Options</h2>
+                    <div id="options-add">
+                        <button class="button" onclick=onClickMainScreen()>Main Screen</button>
+                        <button class="button" onclick=onClickReset()>Reset</button>
+                        <button id="toggledark" class="button" onclick=onClickToggle() value="light">Toogle Dark</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
