@@ -101,7 +101,7 @@ function onClickReset() {
     document.getElementById("score-bot").innerHTML = 0;
     document.getElementById("img-bot").src = "";
     document.getElementById("img-you").src = "";
-    document.getElementById("winner").innerHTML = "";
+    document.getElementById("winner").innerHTML = "Best Of Five!";
     document.getElementById("choose-you").style.display = "flex"
     document.getElementById("img-bot").src = "images/empty.png"
     document.getElementById("img-you").src = "images/empty.png"
