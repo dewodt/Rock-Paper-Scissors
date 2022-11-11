@@ -110,13 +110,21 @@ function onClickReset() {
 function onClickToggle() {
     if (document.getElementById("toggledark").value == "light") {
         document.body.style.background = "#222425";
-        document.body.style.color = "white";
-        document.getElementById("you").style.borderRightColor = "white"
+        var allButton = document.getElementsByTagName("*");
+        for (var i=0; i<allButton.length; i++){
+            allButton[i].style.color = "white"
+        }
+        document.getElementById("you").style.borderRightColor = "white";
+        document.getElementById("bot").style.borderLeftColor = "white";
         document.getElementById("toggledark").value = "dark";
     } else {
         document.body.style.background = "white";
-        document.body.style.color = "black";
-        document.getElementById("you").style.borderRightColor = "black"
+        var allButton = document.getElementsByTagName("*");
+        for (var i=0; i<allButton.length; i++){
+            allButton[i].style.color = "black"
+        }
+        document.getElementById("you").style.borderRightColor = "black";
+        document.getElementById("bot").style.borderLeftColor = "black";
         document.getElementById("toggledark").value = "light";        
     }
 }

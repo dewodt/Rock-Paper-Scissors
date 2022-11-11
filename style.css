@@ -57,7 +57,9 @@
     font-weight: bold;
     padding: 1.2vh 3vw;
     border-radius: 1.5vh;
+    border: none;
     cursor: pointer;
+    background-color: #1298E5;
 }
 
 #addition {
