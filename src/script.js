@@ -10,22 +10,22 @@ let countBot = 0;
 function onClickRock() {
     botIndex = Math.floor(Math.random()*3);
     botChose = botChoseArray[botIndex];
-    document.getElementById("img-you").src = "images/rock.png";
+    document.getElementById("img-you").src = "src/images/rock.png";
     if (botChose == "rock") {
         // Draw
-        document.getElementById("img-bot").src ="images/rock.png";
+        document.getElementById("img-bot").src ="src/images/rock.png";
         document.getElementById("winner").innerHTML = "Draw";
     } else if (botChose == "paper") {
         // Lose
         countBot += 1;
         document.getElementById("score-bot").innerHTML = countBot;
-        document.getElementById("img-bot").src = "images/paper.png";
+        document.getElementById("img-bot").src = "src/images/paper.png";
         document.getElementById("winner").innerHTML = "Winner: Bot";
     } else {
         // Win
         countYou += 1;
         document.getElementById("score-you").innerHTML = countYou;
-        document.getElementById("img-bot").src = "images/scissors.png";
+        document.getElementById("img-bot").src = "src/images/scissors.png";
         document.getElementById("winner").innerHTML = "Winner: You";
     }
     checkWinner()
@@ -34,22 +34,22 @@ function onClickRock() {
 function onClickPaper() {
     botIndex = Math.floor(Math.random()*3);
     botChose = botChoseArray[botIndex];
-    document.getElementById("img-you").src = "images/paper.png";
+    document.getElementById("img-you").src = "src/images/paper.png";
     if (botChose == "rock") {
         // Win
         countYou += 1;
         document.getElementById("score-you").innerHTML = countYou;
-        document.getElementById("img-bot").src ="images/rock.png";
+        document.getElementById("img-bot").src ="src/images/rock.png";
         document.getElementById("winner").innerHTML = "Winner: You";
     } else if (botChose == "paper") {
         // Draw
-        document.getElementById("img-bot").src = "images/paper.png";
+        document.getElementById("img-bot").src = "src/images/paper.png";
         document.getElementById("winner").innerHTML = "Draw";
     } else {
         // Lose
         countBot += 1;
         document.getElementById("score-bot").innerHTML = countBot;
-        document.getElementById("img-bot").src = "images/scissors.png";
+        document.getElementById("img-bot").src = "src/images/scissors.png";
         document.getElementById("winner").innerHTML = "Winner: Bot";
     }
     checkWinner()
@@ -58,22 +58,22 @@ function onClickPaper() {
 function onClickScissors() {
     botIndex = Math.floor(Math.random()*3);
     botChose = botChoseArray[botIndex];
-    document.getElementById("img-you").src = "images/scissors.png";
+    document.getElementById("img-you").src = "src/images/scissors.png";
     if (botChose == "rock") {
         // Lose
         countBot += 1;
         document.getElementById("score-bot").innerHTML = countBot;
-        document.getElementById("img-bot").src ="images/rock.png";
+        document.getElementById("img-bot").src ="src/images/rock.png";
         document.getElementById("winner").innerHTML = "Winner: Bot";
     } else if (botChose == "paper") {
         // Win
         countYou += 1;
         document.getElementById("score-you").innerHTML = countYou;
-        document.getElementById("img-bot").src = "images/paper.png";
+        document.getElementById("img-bot").src = "src/images/paper.png";
         document.getElementById("winner").innerHTML = "Winner: You";
     } else {
         // Draw
-        document.getElementById("img-bot").src = "images/scissors.png";
+        document.getElementById("img-bot").src = "src/images/scissors.png";
         document.getElementById("winner").innerHTML = "Draw";
     }
     checkWinner()
@@ -103,8 +103,8 @@ function onClickReset() {
     document.getElementById("img-you").src = "";
     document.getElementById("winner").innerHTML = "Best Of Five!";
     document.getElementById("choose-you").style.display = "flex"
-    document.getElementById("img-bot").src = "images/empty.png"
-    document.getElementById("img-you").src = "images/empty.png"
+    document.getElementById("img-bot").src = "src/images/empty.png"
+    document.getElementById("img-you").src = "src/images/empty.png"
 }
 
 function onClickToggle() {
