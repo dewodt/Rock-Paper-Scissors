@@ -1,11 +1,16 @@
 function startGame() {
+    // Hide "home", display "game"
     document.getElementById("home").style.display = "none";
     document.getElementById("game").style.display = "flex";
 }
 
+// Inisialisasi Variable
 const botChoseArray = ["rock", "paper", "scissors"];
 let countYou = 0;
 let countBot = 0;
+let countClick = 0;
+let time = 10
+let autoupdate
 
 function startAnimation() {
     // Disable button rock, paper, scissors, reset saat animasi mulai
@@ -59,7 +64,33 @@ function startAnimation() {
     }
 }
 
+function timeLeft() {
+    // Inisialisasi waktu count downm
+    time = 10
+
+    // Jika button RPS sudah diklik setidaknya satu kali, countdown mulai
+    if (countClick > 0) {
+        autoupdate = setInterval(updateTime, 1000)
+    }
+
+    function updateTime() {
+        document.getElementById("time").innerHTML = `Time Left : ${time}`
+        time -= 1
+        if (time < 0) { // Jika time negative, reset.
+            countBot += 1
+            document.getElementById("score-bot").innerHTML = countBot;
+            time = 10
+        }
+        checkWinner()
+    }
+}
+
 function onClickRock() {
+    // Inisialisasi count down
+    countClick += 1
+    clearInterval(autoupdate)
+    document.getElementById("time").innerHTML = "Time Left :"
+
     // Mulai Animasi saat button di click
     startAnimation()
 
@@ -78,19 +109,29 @@ function onClickRock() {
             countBot += 1;
             document.getElementById("score-bot").innerHTML = countBot;
             document.getElementById("img-bot").src = "src/images/paper.png";
-            document.getElementById("winner").innerHTML = "Winner: Bot";
+            document.getElementById("winner").innerHTML = "Winner : Bot";
         } else {
             // Win
             countYou += 1;
             document.getElementById("score-you").innerHTML = countYou;
             document.getElementById("img-bot").src = "src/images/scissors.png";
-            document.getElementById("winner").innerHTML = "Winner: You";
+            document.getElementById("winner").innerHTML = "Winner : You";
         }
+
+        // Memanggil Fungsi
+        timeLeft()
+
+        // Memeriksa Pemenang
         checkWinner()
     }
 }
 
 function onClickPaper() {
+    // Inisialisasi count down
+    countClick += 1
+    clearInterval(autoupdate)
+    document.getElementById("time").innerHTML = "Time Left :"
+
     // Mulai animasi saat button diclick
     startAnimation()
 
@@ -105,7 +146,7 @@ function onClickPaper() {
             countYou += 1;
             document.getElementById("score-you").innerHTML = countYou;
             document.getElementById("img-bot").src ="src/images/rock.png";
-            document.getElementById("winner").innerHTML = "Winner: You";
+            document.getElementById("winner").innerHTML = "Winner : You";
         } else if (botChose == "paper") {
             // Draw
             document.getElementById("img-bot").src = "src/images/paper.png";
@@ -115,13 +156,22 @@ function onClickPaper() {
             countBot += 1;
             document.getElementById("score-bot").innerHTML = countBot;
             document.getElementById("img-bot").src = "src/images/scissors.png";
-            document.getElementById("winner").innerHTML = "Winner: Bot";
+            document.getElementById("winner").innerHTML = "Winner : Bot";
         }
+        // Memanggil Fungsi
+        timeLeft()
+
+        // Mengecek Pemenang
         checkWinner()
     }
 }
 
 function onClickScissors() {
+    // Inisialisasi count down
+    countClick += 1
+    clearInterval(autoupdate)
+    document.getElementById("time").innerHTML = "Time Left :"
+
     // Mulai animasi saat button diclick
     startAnimation()
 
@@ -136,27 +186,36 @@ function onClickScissors() {
             countBot += 1;
             document.getElementById("score-bot").innerHTML = countBot;
             document.getElementById("img-bot").src ="src/images/rock.png";
-            document.getElementById("winner").innerHTML = "Winner: Bot";
+            document.getElementById("winner").innerHTML = "Winner : Bot";
         } else if (botChose == "paper") {
             // Win
             countYou += 1;
             document.getElementById("score-you").innerHTML = countYou;
             document.getElementById("img-bot").src = "src/images/paper.png";
-            document.getElementById("winner").innerHTML = "Winner: You";
+            document.getElementById("winner").innerHTML = "Winner : You";
         } else {
             // Draw
             document.getElementById("img-bot").src = "src/images/scissors.png";
             document.getElementById("winner").innerHTML = "Draw";
         }
+
+        // Memanggil Fungsi
+        timeLeft()
+
+        // Mengecek Pemenang
         checkWinner()
     }
 }
 
 function checkWinner() {
-    if (countBot == 3) {
+    if (countBot == 3) { //Bot Menang
+        clearInterval(autoupdate)
+        document.getElementById("time-left").style.display = "none"
         document.getElementById("choose-you").style.display = "none"
         document.getElementById("winner").innerHTML = "Bot Win!"
-    } else if (countYou == 3) {
+    } else if (countYou == 3) { // Anda menang
+        clearInterval(autoupdate)
+        document.getElementById("time-left").style.display = "none"
         document.getElementById("choose-you").style.display = "none"
         document.getElementById("winner").innerHTML = "You Win!"
     }
@@ -169,19 +228,30 @@ function onClickMainScreen() {
 }
 
 function onClickReset() {
+    // Reset countdown
+    clearInterval(autoupdate);
+    document.getElementById("time").innerHTML = "Time Left :";
+
+    // Count jadi 0
     countBot = 0;
     countYou = 0;
     document.getElementById("score-you").innerHTML = 0;
     document.getElementById("score-bot").innerHTML = 0;
-    document.getElementById("img-bot").src = "";
-    document.getElementById("img-you").src = "";
+
+    // Reset Winner
     document.getElementById("winner").innerHTML = "Best Of Five!";
+
+    // Reset display
     document.getElementById("choose-you").style.display = "flex"
-    document.getElementById("img-bot").src = "src/images/rock.png"
-    document.getElementById("img-you").src = "src/images/rock.png"
+    document.getElementById("time-left").style.display = "flex"
+
+    // Reset images
+    document.getElementById("img-bot").src = "src/images/rock.png";
+    document.getElementById("img-you").src = "src/images/rock.png";
 }
 
 function onClickToggle() {
+    // Dari light ke dark
     if (document.getElementById("toggledark").value == "light") {
         document.body.style.background = "#222425";
         var allButton = document.getElementsByTagName("*");
@@ -191,7 +261,7 @@ function onClickToggle() {
         document.getElementById("you").style.borderRightColor = "white";
         document.getElementById("bot").style.borderLeftColor = "white";
         document.getElementById("toggledark").value = "dark";
-    } else {
+    } else { // Dari dark ke light
         document.body.style.background = "white";
         var allButton = document.getElementsByTagName("*");
         for (var i=0; i<allButton.length; i++){
