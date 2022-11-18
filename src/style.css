@@ -87,6 +87,10 @@
     background-color: #4BC2EA;
 }
 
+.button:hover {
+    background-color: #3A94B2;
+}
+
 #addition {
     display: flex;
     flex-direction: column;

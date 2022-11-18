@@ -22,6 +22,13 @@ function startAnimation() {
     // Mulai animasi
     document.getElementById("img-you").style.animation = "shakeYou 1.4s ease";
     document.getElementById("img-bot").style.animation = "shakeRobot 1.4s ease";
+
+    // Style Disabled Button
+    document.getElementById("rock").style.color = "#398CA8";
+    document.getElementById("paper").style.color = "#398CA8";
+    document.getElementById("scissors").style.color = "#398CA8";
+    document.getElementById("mainscr").style.color = "#398CA8";
+    document.getElementById("reset").style.color = "#398CA8";
     
     // Reset animasi setelah 1.4 detik
     setTimeout(resetAnimation, 1400)
@@ -37,6 +44,18 @@ function startAnimation() {
         // Reset animasi
         document.getElementById("img-you").style.animation = "";
         document.getElementById("img-bot").style.animation = "";
+
+        // Reset Style Disabled Button
+        if (document.getElementById("toggledark").value == "light") {
+            newColor = "black";
+        } else {
+            newColor = "white";
+        }
+        document.getElementById("rock").style.color = newColor;
+        document.getElementById("paper").style.color = newColor;
+        document.getElementById("scissors").style.color = newColor;
+        document.getElementById("mainscr").style.color = newColor;
+        document.getElementById("reset").style.color = newColor;
     }
 }
 
