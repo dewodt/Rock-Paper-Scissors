@@ -87,7 +87,7 @@
     background-color: #4BC2EA;
 }
 
-.button:hover {
+.button:hover:enabled {
     background-color: #3A94B2;
 }
 

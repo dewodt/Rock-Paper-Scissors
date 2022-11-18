@@ -9,8 +9,8 @@ const botChoseArray = ["rock", "paper", "scissors"];
 let countYou = 0;
 let countBot = 0;
 let countClick = 0;
-let time = 10
-let autoupdate
+let time = 10;
+let autoupdate;
 
 function startAnimation() {
     // Disable button rock, paper, scissors, reset saat animasi mulai
@@ -28,15 +28,22 @@ function startAnimation() {
     document.getElementById("img-you").style.animation = "shakeYou 1.4s ease";
     document.getElementById("img-bot").style.animation = "shakeRobot 1.4s ease";
 
-    // Style Disabled Button
+    // Color Disabled Button
     document.getElementById("rock").style.color = "#398CA8";
     document.getElementById("paper").style.color = "#398CA8";
     document.getElementById("scissors").style.color = "#398CA8";
     document.getElementById("mainscr").style.color = "#398CA8";
     document.getElementById("reset").style.color = "#398CA8";
+
+    // Cursor Disabled Button
+    document.getElementById("rock").style.cursor = "default";
+    document.getElementById("paper").style.cursor = "default";
+    document.getElementById("scissors").style.cursor = "default";
+    document.getElementById("mainscr").style.cursor = "default";
+    document.getElementById("reset").style.cursor = "default";
     
     // Reset animasi setelah 1.4 detik
-    setTimeout(resetAnimation, 1400)
+    setTimeout(resetAnimation, 1400);
     
     function resetAnimation() {
         // Enable button rock, paper, scissors, reset setelah animasi selesai
@@ -61,38 +68,45 @@ function startAnimation() {
         document.getElementById("scissors").style.color = newColor;
         document.getElementById("mainscr").style.color = newColor;
         document.getElementById("reset").style.color = newColor;
+
+        // Cursor
+        document.getElementById("rock").style.cursor = "pointer";
+        document.getElementById("paper").style.cursor = "pointer";
+        document.getElementById("scissors").style.cursor = "pointer";
+        document.getElementById("mainscr").style.cursor = "pointer";
+        document.getElementById("reset").style.cursor = "pointer";
     }
 }
 
 function timeLeft() {
     // Inisialisasi waktu count downm
-    time = 10
+    time = 10;
 
     // Jika button RPS sudah diklik setidaknya satu kali, countdown mulai
     if (countClick > 0) {
-        autoupdate = setInterval(updateTime, 1000)
+        autoupdate = setInterval(updateTime, 1000);
     }
 
     function updateTime() {
-        document.getElementById("time").innerHTML = `Time Left : ${time}`
-        time -= 1
+        document.getElementById("time").innerHTML = `Time Left : ${time}`;
+        time -= 1;
         if (time < 0) { // Jika time negative, reset.
-            countBot += 1
+            countBot += 1;
             document.getElementById("score-bot").innerHTML = countBot;
-            time = 10
+            time = 10;
         }
-        checkWinner()
+        checkWinner();
     }
 }
 
 function onClickRock() {
     // Inisialisasi count down
-    countClick += 1
-    clearInterval(autoupdate)
-    document.getElementById("time").innerHTML = "Time Left :"
+    countClick += 1;
+    clearInterval(autoupdate);
+    document.getElementById("time").innerHTML = "Time Left :";
 
     // Mulai Animasi saat button di click
-    startAnimation()
+    startAnimation();
 
     // Tampilkan hasil setelah 1.4s (animasi selesai)
     setTimeout(clickRock, 1400);
@@ -119,24 +133,24 @@ function onClickRock() {
         }
 
         // Memanggil Fungsi
-        timeLeft()
+        timeLeft();
 
         // Memeriksa Pemenang
-        checkWinner()
+        checkWinner();
     }
 }
 
 function onClickPaper() {
     // Inisialisasi count down
-    countClick += 1
-    clearInterval(autoupdate)
-    document.getElementById("time").innerHTML = "Time Left :"
+    countClick += 1;
+    clearInterval(autoupdate);
+    document.getElementById("time").innerHTML = "Time Left :";
 
     // Mulai animasi saat button diclick
-    startAnimation()
+    startAnimation();
 
     // Tampilkan hasil setelah 1.4s (animasi selesai)
-    setTimeout(clickPaper, 1400)
+    setTimeout(clickPaper, 1400);
     function clickPaper() {
         botIndex = Math.floor(Math.random()*3);
         botChose = botChoseArray[botIndex];
@@ -159,24 +173,24 @@ function onClickPaper() {
             document.getElementById("winner").innerHTML = "Winner : Bot";
         }
         // Memanggil Fungsi
-        timeLeft()
+        timeLeft();
 
         // Mengecek Pemenang
-        checkWinner()
+        checkWinner();
     }
 }
 
 function onClickScissors() {
     // Inisialisasi count down
-    countClick += 1
-    clearInterval(autoupdate)
-    document.getElementById("time").innerHTML = "Time Left :"
+    countClick += 1;
+    clearInterval(autoupdate);
+    document.getElementById("time").innerHTML = "Time Left :";
 
     // Mulai animasi saat button diclick
-    startAnimation()
+    startAnimation();
 
     // Tampilkan hasil setelah animasi selesai
-    setTimeout(clickScissors, 1400)
+    setTimeout(clickScissors, 1400);
     function clickScissors() {
         botIndex = Math.floor(Math.random()*3);
         botChose = botChoseArray[botIndex];
@@ -200,24 +214,24 @@ function onClickScissors() {
         }
 
         // Memanggil Fungsi
-        timeLeft()
+        timeLeft();
 
         // Mengecek Pemenang
-        checkWinner()
+        checkWinner();
     }
 }
 
 function checkWinner() {
     if (countBot == 3) { //Bot Menang
-        clearInterval(autoupdate)
-        document.getElementById("time-left").style.display = "none"
-        document.getElementById("choose-you").style.display = "none"
-        document.getElementById("winner").innerHTML = "Bot Win!"
+        clearInterval(autoupdate);
+        document.getElementById("time-left").style.display = "none";
+        document.getElementById("choose-you").style.display = "none";
+        document.getElementById("winner").innerHTML = "Bot Win!";
     } else if (countYou == 3) { // Anda menang
-        clearInterval(autoupdate)
-        document.getElementById("time-left").style.display = "none"
-        document.getElementById("choose-you").style.display = "none"
-        document.getElementById("winner").innerHTML = "You Win!"
+        clearInterval(autoupdate);
+        document.getElementById("time-left").style.display = "none";
+        document.getElementById("choose-you").style.display = "none";
+        document.getElementById("winner").innerHTML = "You Win!";
     }
 }
 
@@ -242,8 +256,8 @@ function onClickReset() {
     document.getElementById("winner").innerHTML = "Best Of Five!";
 
     // Reset display
-    document.getElementById("choose-you").style.display = "flex"
-    document.getElementById("time-left").style.display = "flex"
+    document.getElementById("choose-you").style.display = "flex";
+    document.getElementById("time-left").style.display = "flex";
 
     // Reset images
     document.getElementById("img-bot").src = "src/images/rock.png";
@@ -256,7 +270,7 @@ function onClickToggle() {
         document.body.style.background = "#222425";
         var allButton = document.getElementsByTagName("*");
         for (var i=0; i<allButton.length; i++){
-            allButton[i].style.color = "white"
+            allButton[i].style.color = "white";
         }
         document.getElementById("you").style.borderRightColor = "white";
         document.getElementById("bot").style.borderLeftColor = "white";
@@ -265,7 +279,7 @@ function onClickToggle() {
         document.body.style.background = "white";
         var allButton = document.getElementsByTagName("*");
         for (var i=0; i<allButton.length; i++){
-            allButton[i].style.color = "black"
+            allButton[i].style.color = "black";
         }
         document.getElementById("you").style.borderRightColor = "black";
         document.getElementById("bot").style.borderLeftColor = "black";
