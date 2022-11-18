@@ -19,11 +19,32 @@
 
 #comparison {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image {
     height: 18vh;
     width: auto;
+    margin-top: 10px;
+}
+
+@keyframes shakeYou {   
+    0% { transform: translate(0px, 10px); }
+    20% { transform: translate(0px, -10px); }
+    40% { transform: translate(0px, 10px); }
+    60% { transform: translate(0px, -10px); }
+    80% { transform: translate(0px, 10px); }
+    100% { transform: translate(0px, -10px); }
+}
+
+@keyframes shakeRobot {   
+    0% { transform: translate(0px, 10px) rotateY(180deg); }
+    20% { transform: translate(0px, -10px) rotateY(180deg); }
+    40% { transform: translate(0px, 10px) rotateY(180deg); }
+    60% { transform: translate(0px, -10px) rotateY(180deg); }
+    80% { transform: translate(0px, 10px) rotateY(180deg); }
+    100% { transform: translate(0px, -10px) rotateY(180deg); }
 }
 
 #you {
@@ -40,6 +61,10 @@
     align-items: center;
     border-left: 1px solid black;
     padding-left: 5.85vw;
+}
+
+#img-bot {
+    transform: rotateY(180deg);
 }
 
 #choose-you {
