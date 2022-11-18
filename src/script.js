@@ -93,6 +93,7 @@ function timeLeft() {
         if (time < 0) { // Jika time negative, reset.
             countBot += 1;
             document.getElementById("score-bot").innerHTML = countBot;
+            document.getElementById("winner").innerHTML = "Winner : Bot";
             time = 10;
         }
         checkWinner();
