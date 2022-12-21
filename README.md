@@ -8,5 +8,5 @@ Repository ini berisi web game rock paper scissors yang dibuat untuk tugas unit 
 - Reset game 🕹️
 - Responsive 💻🖥️📱
 ## Cara Menjalankan:
-Klik [https://dewodt.github.io/rock-paper-scissors/](https://dewodt.github.io/Rock-Paper-Scissors/) untuk masuk ke github pages repository ini
+Klik [https://dewodt.github.io/rock-paper-scissors/](https://dewodt.github.io/rock-paper-scissors/) untuk masuk ke github pages repository ini
 
